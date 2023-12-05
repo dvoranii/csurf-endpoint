@@ -36,7 +36,11 @@ const sendMail = async ({ name, email, message }) => {
   };
   try {
     await transporter.sendMail(mailOptionsSelf);
-    await transporter.sendMail(mailOptionsUser);
+
+    setTimeout(async () => {
+      await transporter.sendMail(mailOptionsUser);
+    }, 480000);
+
     return { success: true };
   } catch (error) {
     console.error("Error in sending email:", error);
